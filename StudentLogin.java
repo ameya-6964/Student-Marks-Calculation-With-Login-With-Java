@@ -73,15 +73,17 @@ public class StudentLogin {
 				String password = passwordField.getText();
 				if(password.contains("Ameya") && userid.contains("Ameya121297") && username.contains("Ameya Belvalkar"))
 				{
-					JOptionPane.showMessageDialog(null,"  YOU HAVE LOGGED :)","SUCCESSFUL",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,"  YOU HAVE LOGGED AND YOU CAN CALCULATE MARKS :)","SUCCESSFUL",JOptionPane.INFORMATION_MESSAGE);
 					idField.setText(null);
 					nameField.setText(null);
 					passwordField.setText(null);
+					StudentMarks.main(null);
 				}
 				else
 				{
 					JOptionPane.showMessageDialog(null,"  INVALID CREDENTIALS","ERROR",JOptionPane.ERROR_MESSAGE);
 					idField.setText(null);
+					nameField.setText(null);
 					passwordField.setText(null);
 				}
 				
@@ -95,6 +97,7 @@ public class StudentLogin {
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				idField.setText(null);
+				nameField.setText(null);
 				passwordField.setText(null);
 
 			}

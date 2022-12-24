@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class StudentMarks {
 
@@ -46,7 +48,7 @@ public class StudentMarks {
 		JLabel lblNewLabel = new JLabel("STUDENT MARKS CALCULATION SYSTEM");
 		lblNewLabel.setBackground(new Color(255, 0, 0));
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-		lblNewLabel.setBounds(65, 10, 526, 90);
+		lblNewLabel.setBounds(195, 10, 526, 90);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblSubject = new JLabel("SUBJECT 1 ");
@@ -116,18 +118,73 @@ public class StudentMarks {
 		frame.getContentPane().add(grade);
 		
 		JButton btnNewButton_1_1 = new JButton("CALCULATE");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int s1 = Integer.parseInt(sub1.getText());
+				int s2 = Integer.parseInt(sub2.getText());
+				int s3 = Integer.parseInt(sub3.getText());
+				int total = s1 + s2 + s3;
+				float avg = total / 3;
+				
+				totalMarks.setText(String.valueOf(total));
+				average.setText(String.valueOf(avg));
+				
+				if(avg >= 35 && avg <= 49)
+				{
+					grade.setText("You Have Recived C Grade");
+				}
+				
+				else if(avg >= 50 && avg <= 59)
+				{
+					grade.setText("You Have Recived C+ Grade");
+				}
+				else if(avg > 59 && avg <= 70)
+				{
+					grade.setText("You Have Recived B Grade");
+				}
+				else if(avg >= 71 && avg <= 85)
+				{
+					grade.setText("You Have Recived A Grade");
+				}
+				else if(avg > 85 && avg <= 100)
+				{
+					grade.setText("You Have Recived A+ Grade");
+				}
+				else 
+				{
+					grade.setText("You Have Not Passed The Examination");
+				}
+				
+			}
+		});
 		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		btnNewButton_1_1.setBackground(new Color(0, 255, 128));
 		btnNewButton_1_1.setBounds(617, 179, 189, 50);
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("RESET");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sub1.setText(null);
+				sub2.setText(null);
+				sub3.setText(null);
+				totalMarks.setText(null);
+				average.setText(null);
+				grade.setText(null);
+				sub1.requestFocus();
+			}
+		});
 		btnNewButton_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		btnNewButton_1_1_1.setBackground(new Color(0, 128, 255));
 		btnNewButton_1_1_1.setBounds(617, 315, 189, 50);
 		frame.getContentPane().add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1 = new JButton("EXIT");
+		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnNewButton_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		btnNewButton_1_1_1_1.setBackground(Color.RED);
 		btnNewButton_1_1_1_1.setBounds(617, 445, 189, 50);

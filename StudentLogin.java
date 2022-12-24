@@ -15,8 +15,9 @@ import java.awt.Color;
 
 public class StudentLogin {
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField idField;
 	private JPasswordField passwordField;
+	private JTextField nameField;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,7 +38,7 @@ public class StudentLogin {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 710, 408);
+		frame.setBounds(100, 100, 710, 542);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -50,16 +51,16 @@ public class StudentLogin {
 		lblNewLabel_1_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblNewLabel_1_1.setBounds(60, 190, 154, 30);
+		lblNewLabel_1_1.setBounds(64, 265, 154, 30);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-		textField = new JTextField();
-		textField.setBounds(309, 114, 278, 29);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		idField = new JTextField();
+		idField.setBounds(313, 189, 278, 29);
+		frame.getContentPane().add(idField);
+		idField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(309, 190, 278, 29);
+		passwordField.setBounds(313, 265, 278, 29);
 		frame.getContentPane().add(passwordField);
 		
 		JButton btnNewButton_1_1 = new JButton("LOGIN");
@@ -67,37 +68,39 @@ public class StudentLogin {
 		btnNewButton_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String userid = textField.getText();
-				String password = textField.getText();
-				if(password.contains("Ameya") && userid.contains("Ameya1212"))
+				String username = nameField.getText();
+				String userid = idField.getText();
+				String password = passwordField.getText();
+				if(password.contains("Ameya") && userid.contains("Ameya121297") && username.contains("Ameya Belvalkar"))
 				{
 					JOptionPane.showMessageDialog(null,"  YOU HAVE LOGGED :)","SUCCESSFUL",JOptionPane.INFORMATION_MESSAGE);
-					textField.setText(null);
+					idField.setText(null);
+					nameField.setText(null);
 					passwordField.setText(null);
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null,"  INVALID LOGIN","ERROR",JOptionPane.ERROR_MESSAGE);
-					textField.setText(null);
+					JOptionPane.showMessageDialog(null,"  INVALID CREDENTIALS","ERROR",JOptionPane.ERROR_MESSAGE);
+					idField.setText(null);
 					passwordField.setText(null);
 				}
 				
 			}
 		});
-		btnNewButton_1_1.setBounds(184, 271, 110, 50);
+		btnNewButton_1_1.setBounds(193, 373, 110, 50);
 		frame.getContentPane().add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("RESET");
 		btnNewButton_1_1_1.setBackground(new Color(0, 128, 255));
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText(null);
+				idField.setText(null);
 				passwordField.setText(null);
 
 			}
 		});
 		btnNewButton_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		btnNewButton_1_1_1.setBounds(340, 271, 110, 50);
+		btnNewButton_1_1_1.setBounds(349, 373, 110, 50);
 		frame.getContentPane().add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1 = new JButton("EXIT");
@@ -108,14 +111,26 @@ public class StudentLogin {
 			}
 		});
 		btnNewButton_1_1_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		btnNewButton_1_1_1_1.setBounds(502, 271, 110, 50);
+		btnNewButton_1_1_1_1.setBounds(511, 373, 110, 50);
 		frame.getContentPane().add(btnNewButton_1_1_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("STUDENT ID");
 		lblNewLabel_1_2.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.PLAIN, 25));
-		lblNewLabel_1_2.setBounds(60, 114, 198, 30);
+		lblNewLabel_1_2.setBounds(64, 189, 198, 30);
 		frame.getContentPane().add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("STUDENT NAME");
+		lblNewLabel_1_2_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		lblNewLabel_1_2_1.setBounds(64, 117, 198, 30);
+		frame.getContentPane().add(lblNewLabel_1_2_1);
+		
+		nameField = new JTextField();
+		nameField.setColumns(10);
+		nameField.setBounds(313, 117, 278, 29);
+		frame.getContentPane().add(nameField);
 	}
 }
